@@ -4,7 +4,7 @@
         <title>Are you human?</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-
+		<link href="css/facebox.css" type="text/css" rel="stylesheet" />
         <style>
 
 	body{
@@ -99,8 +99,10 @@
 
 	#sortable {
 	    list-style-type: none;
-	    margin: 20px 0px 0px 46px;
+	    margin: 20px 20px 20px 20px;
 	    padding: 0;
+	    width:100%;
+	    clear:all;
 	}
 	#sortable li {
 	    margin: 3px 3px 3px 0;
@@ -135,20 +137,65 @@
 	    -webkit-border-radius:10px;
 	    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-	    height:450px;
 	    overflow:auto;
-	    width:50%;
+	    width:60%;
 	    overflow:hidden;
 	    margin:0 auto;
+	    padding-bottom: 30px;
 	    background-color:#fff;
 	}
+
+a.btn {
+	margin:0 auto;
+	text-align: center;
+	width: 30%;
+	position: relative;
+	display: block;
+	margin-top:40px;
+	color: #666;
+	background-color: #eee;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	padding: 10px 30px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-bottom-width: 3px;
+}
+
+	a.btn:hover {
+		background-color: #e3e3e3;
+		border-color: rgba(0,0,0,0.5);
+	}
+	
+	a.btn:active {
+		background-color: #CCC;
+		border-color: rgba(0,0,0,0.9);
+	}
+
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+
+
+span[class*="styled-text"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+.styled-text{
+	font-family: 'Tauri', sans-serif;
+	text-transform: uppercase;
+	text-align: center;
+	color:#666;
+}
 
 </style>
 </head>
 <body>
 
         <h1 class="ribbon"><strong>Are you human?</strong></h1>
-
+		<h3 class="styled-text">Re-order the sequence below to prove you are a human!</h3>
         <div class="wrapper">
             <ul id="sortable" class="ui-sortable">
                 <li>1</li>
@@ -158,16 +205,27 @@
                 <li>5</li>
                 <li>6</li>
             </ul>
+            
         </div>
         <a href="#" id="check" class="btn">Check!</a>
 
        
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.3.2.min.js"></script>
+        <script type="text/javascript" src="js/facebox.js"></script>
         <script type="text/javascript" src="js/ui.core.js"></script>
         <script type="text/javascript" src="js/ui.sortable.js"></script>
         <script type="text/javascript" src="js/jquery.ext.js"></script>
-		
+		<script>
+            $(function() {
+                $("#sortable").sortable();
+                $("#sortable").disableSelection();
+                $('ul').shuffle();
+                $("#check").click(function(){
+                    ($('ul').validate()) ? jQuery.facebox('As human as it gets ol\' boi!') : jQuery.facebox('You better get yerrself checked out! your lookin a bit shiny there..');
+                });
+            });
+        </script>
         
     </body>
 </html>
