@@ -175,13 +175,6 @@ a.btn {
 		border-color: rgba(0,0,0,0.9);
 	}
 
-@import url(http://weloveiconfonts.com/api/?family=fontawesome);
-
-
-
-span[class*="styled-text"]:before {
-  font-family: 'FontAwesome', sans-serif;
-}
 
 .styled-text{
 	font-family: 'Tauri', sans-serif;
@@ -222,7 +215,7 @@ span[class*="styled-text"]:before {
                 $("#sortable").disableSelection();
                 $('ul').shuffle();
                 $("#check").click(function(){
-                    ($('ul').validate()) ? jQuery.facebox('As human as it gets ol\' boi!') : jQuery.facebox('You better get yerrself checked out! your lookin a bit shiny there..');
+                    ($('ul').validate()) ? jQuery.facebox('<h3 class="style-text">As human as it gets ol\' boi!</h3><br/><img src="img/baby.png" width="120" height="120" />') : jQuery.facebox('<h3 class="style-text">You better get yerrself checked out! your lookin a bit shiny there..</h3><br/><img src="img/bender.png" width="120" height="120" />');
                 });
             });
         </script>
